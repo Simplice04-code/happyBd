@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Source+Sans+3:wght@400;500&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  min-height: 100vh;
+  margin: 0;
+  padding: clamp(1rem, 4vw, 2rem) clamp(0.75rem, 4vw, 2rem);
+  background:
+    radial-gradient(ellipse at 50% 8%, #ffe5dc 0%, transparent 64%),
+    linear-gradient(140deg, #efb5b5, #dfa1ac);
+  color: #53343c;
+  font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+}
+
+.birthday-card {
+  position: relative;
+  width: min(100%, 44rem);
+  padding: clamp(0.5rem, 2vw, 0.875rem) clamp(1.25rem, 6vw, 3.5rem) clamp(2rem, 6vw, 2.75rem);
+  border: 1px solid #cc9192;
+  border-radius: 1.5rem;
+  background: radial-gradient(ellipse at 50% 30%, #fffaf4, #fff0e8 90%);
+  box-shadow: 0 1rem 3rem #74374726;
+  text-align: center;
+}
+
+.birthday-card::before {
+  position: absolute;
+  inset: 0.45rem;
+  border: 1px solid #d5a49a80;
+  border-radius: 1rem;
+  pointer-events: none;
+  content: '';
+}
+
+.cake-stage {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  width: min(100%, 24rem);
+  margin: 0 auto 0.4rem;
+  background: radial-gradient(ellipse at 50% 64%, #f6ccc3a6, transparent 65%);
+}
+
+#cake {
+  display: block;
+  width: min(75%, 15.5rem);
+  height: auto;
+}
+
+.cake-heart {
+  position: absolute;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.cake-heart-left {
+  top: 34%;
+  left: 13%;
+}
+
+.cake-heart-right {
+  top: 48%;
+  right: 12%;
+  font-size: 0.8rem;
+}
+
+.cake-heart-small {
+  top: 20%;
+  right: 26%;
+  font-size: 0.55rem;
+}
+
+.flame {
+  filter: drop-shadow(0 0 5px #eea541b3) drop-shadow(0 0 13px #f6b95499);
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: flicker 950ms ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+  from { transform: rotate(-5deg) scaleY(0.91); }
+  to { transform: rotate(6deg) scaleY(1.06); }
+}
+
+h1 {
+  margin: 0;
+  color: #833f55;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.25rem, 7vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.heart-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin: 1rem 0;
+  color: #ae6173;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.heart-divider::before,
+.heart-divider::after {
+  width: 2rem;
+  height: 1px;
+  background: #d3a097;
+  content: '';
+}
+
+.birthday-message {
+  max-width: 55ch;
+  margin: 0 auto;
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  line-height: 1.7;
+  text-align: justify;
+  text-align-last: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flame {
+    animation: none;
+  }
+}
